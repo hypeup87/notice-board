@@ -1,0 +1,52 @@
+local-sql-ip : localhost
+local-sql-username : test_user
+local-sql-password : test_password
+
+# Server Properties
+server:
+  port: 80
+  servlet:
+    context-path: /board
+
+# Spring Properties
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://${local-sql-ip}:3306/test_sch?serverTimezone=Asia/Seoul
+    username: ${local-sql-username}
+    password: ${local-sql-password}
+    hikari:
+      pool-name: notice-board-db
+      transaction-isolation: Connection.TRANSACTION_READ_COMMITTED
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+    properties:
+      hibernate:
+        ddl-auto: none
+        use-new-id-generator-mappings: false
+        order_inserts: true
+        order_updates: true
+        show_sql: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+# logging Properties
+logging:
+  level:
+    root: info
+    org.hibernate: off
+  file:
+    name: logs/notice-board.log
+  logback:
+    rollingpolicy:
+      clean-history-on-start: false
+  pattern:
+    level: info
+    console: "%clr([%d{yyyy-MM-dd HH:mm:ss.SSS}]){blue}[notice-board]%clr([${HOSTNAME}])[%thread]%clr([%p][%F-%M:%L]) - %msg %nopex%n"
+
+

@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "6737fde6-070c-4398-a1c5-acf99bfc8cd9",
+		"name": "공지사항",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27889971"
+	},
+	"item": [
+		{
+			"name": "공지사항 등록",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "공지사항 테스트 입니다.001",
+							"type": "text"
+						},
+						{
+							"key": "contents",
+							"value": "등록된 공지사항을 확인해주세요!001",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-04-15T00:00",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-04-25T00:00",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+
+							]
+						}
+					]
+				},
+				"url": "http://localhost/board/notice"
+			},
+			"response": []
+		},
+		{
+			"name": "공지사항 삭제",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost/board/notice/39"
+			},
+			"response": []
+		},
+		{
+			"name": "공지사항 조회",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/board/notice/39"
+			},
+			"response": []
+		},
+		{
+			"name": "공지사항 수정",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "제목변경 33",
+							"type": "text"
+						},
+						{
+							"key": "contents",
+							"value": "내용변경 33",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2024-04-16T09:00",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2024-04-26T09:00",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": [
+
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/board/notice/39",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"board",
+						"notice",
+						"39"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
